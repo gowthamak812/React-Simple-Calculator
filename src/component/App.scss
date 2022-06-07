@@ -1,0 +1,38 @@
+* {
+    margin: 20px;
+}
+
+#inp {
+    width: 260px;
+    height: 50px;
+    border-color: black;
+    outline-color: black;
+    font-size: 30px;
+    text-align: right;
+
+}
+
+.rounded-circle {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
+
+.color {
+    border: 8px solid rgb(255, 187, 0);
+    text-align: center;
+}
+
+.Main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1ch;
+}
+
+.btn-1 {
+    width: 125px;
+    height: 55px;
+    border-radius: 30px;
+}
