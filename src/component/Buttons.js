@@ -4,7 +4,6 @@ import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../component/App.scss';
 
-
 export default function Buttons() {
   const [preState, setPreState] = useState("");
   const [curState, setCurState] = useState("");
@@ -61,17 +60,13 @@ export default function Buttons() {
         return;
     }
     setInput("");
-    setPreState(cal);
+    setPreState(Number(cal).toFixed(2));
     setCurState("");
   };
-  const MinusPlus = () => {
-    if (curState.charAt(0) === "-") {
-      setCurState(curState.substring(1));
-    } else {
-      setCurState("-" + curState);
-    }
+  const backspace = () => {
+    setCurState(curState.slice(0,-1));
+    setPreState("0")
   };
-
   const Percent = () => {
     preState
       ? setCurState(String((parseFloat(curState) / 100) * preState))
@@ -82,8 +77,6 @@ export default function Buttons() {
     setCurState("");
     setInput("0");
   };
-
-
   return (
     <>
       <div>
@@ -93,7 +86,7 @@ export default function Buttons() {
       <div>
         <Button variant="outline-success" className="rounded-circle" onClick={Reset} size="lg" active>AC</Button>{' '}
         <Button variant="outline-success" className="rounded-circle " onClick={Percent} size="lg" active>%</Button>{' '}
-        <Button variant="outline-success" className="rounded-circle" onClick={MinusPlus} size="lg" active>+/-</Button>{' '}
+        <Button variant="outline-success" className="rounded-circle" onClick={backspace} size="lg" active>C</Button>{' '}
         <Button variant="outline-secondary" className="rounded-circle" onClick={OperatorType} size="lg" active>/</Button>{' '}
       </div>
       <div>
@@ -115,9 +108,9 @@ export default function Buttons() {
         <Button variant="outline-secondary" className="rounded-circle" onClick={OperatorType} size="lg" active>+</Button>{' '}
       </div>
       <div>
-        <Button variant="outline-primary" className="btn-1" onClick={InputNum} size="lg" active>0</Button>{' '}
+        <Button variant="outline-primary" className="rounded-circle" onClick={InputNum} size="lg" active>0</Button>{' '}
         <Button variant="outline-primary" className="rounded-circle btn-2" onClick={InputNum} size="lg" active>.</Button>{' '}
-        <Button variant="outline-danger" className="rounded-circle" onClick={Equals} size="lg" active>=</Button>{' '}
+        <Button variant="outline-danger" className="btn-1" onClick={Equals} size="lg" active>=</Button>{' '}
       </div>
     </>
   );
