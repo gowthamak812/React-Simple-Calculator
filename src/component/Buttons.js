@@ -60,7 +60,7 @@ export default function Buttons() {
         return;
     }
     setInput("");
-    setPreState(Number(cal).toFixed(2));
+    setPreState((cal).includes(".") ? Number(cal).toFixed(3).replace(/([0-9]+(\.[1-9]+)?)(\.?0+$)/,"$1"): (cal));
     setCurState("");
   };
   const backspace = () => {
@@ -81,7 +81,7 @@ export default function Buttons() {
     <>
       <div>
         {input !== "" || input === "0" ? (
-          <input id="inp" value={input} />) : (<input id='inp' type={Text} value={preState} />)}
+          <input id="inp" value={(input)} />) : (<input id='inp' type={Text} value={(preState)} />)}
       </div>
       <div>
         <Button variant="outline-success" className="rounded-circle" onClick={Reset} size="lg" active>AC</Button>{' '}
