@@ -1,3 +1,4 @@
+$color:rgb(255, 187, 0);
 * {
     margin: 20px;
     padding: 0%;
@@ -14,11 +15,13 @@
 .rounded-circle {
     width: 60px;
     height: 60px;
+    font-size: 20px;
     text-align: center;
 }
 .btn-div {
-    border: 8px solid rgb(255, 187, 0);
+    border: 8px solid $color;
     text-align: center;
+    margin: 0px;   
 }
 .main {
     display: flex;

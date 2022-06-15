@@ -1,11 +1,11 @@
 import Github from './images/Github.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Row, Col } from 'react-bootstrap';
-
 import Buttons from './component/Buttons';
-function App() {
+
+export default function App() {
   return (
-    <div className='main m-0'>
+    <div className='main'>
       <Row className='justify-content-center ml-5 m-0'>
         <Col xs={4} className='main m-0'><h1>Calculator</h1></Col>
         <Col xs={4} className='m-0'>
@@ -20,5 +20,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
