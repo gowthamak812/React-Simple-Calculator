@@ -1,7 +1,10 @@
 $color:rgb(255, 187, 0);
 * {
+    margin: 0px;
+    padding: 0px;
+}
+div{
     margin: 20px;
-    padding: 0%;
 }
 #inp {
     width: 260px;
@@ -21,15 +24,23 @@ $color:rgb(255, 187, 0);
 .btn-div {
     border: 8px solid $color;
     text-align: center;
-    margin: 0px;   
 }
 .main {
+    margin: 0px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.image-main {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     a img {
-        width: 40px;
+        width: 38px;
     }
 }
 .btn-1 {

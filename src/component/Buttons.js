@@ -37,7 +37,7 @@ export default function Buttons() {
       setPreState(curState);
       setCurState("");
     }
-  };
+};
   const Equals = (e) => {
     if (e.target.innerText === "=") {
       setTotal(true);

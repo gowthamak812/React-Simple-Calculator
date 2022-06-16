@@ -5,10 +5,10 @@ import Buttons from './component/Buttons';
 
 export default function App() {
   return (
-    <div className='main'>
-      <Row className='justify-content-center ml-5 m-0'>
-        <Col xs={4} className='main m-0'><h1>Calculator</h1></Col>
-        <Col xs={4} className='m-0'>
+    <div className='main m-0'>
+      <Row className='justify-content-center m-0'>
+        <Col xs={8} md={8} lg={8} className='main ml-2'><h1>Calculator</h1></Col>
+        <Col xs={2} md={2} lg={2} className='image-main'>
           <a target={'_blank'} href="https://github.com/gowthamak812/React-Simple-Calculator.git">
             <img src={Github} />
           </a>
