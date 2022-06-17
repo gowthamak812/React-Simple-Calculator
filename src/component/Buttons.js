@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../component/App.scss';
 
 export default function Buttons() {
-  const [preState, setPreState] = useState("");
+  let [preState, setPreState] = useState("");
   const [curState, setCurState] = useState("");
   const [input, setInput] = useState("0");
   const [operator, setOperator] = useState("");
@@ -60,22 +60,23 @@ export default function Buttons() {
         return;
     }
     setOperator("");
-    setInput("");
-    setPreState((cal).includes(".") ? Number(cal).toFixed(10).replace(/([0-9]+(\.[1-9]+)?)(\.?0+$)/, "$1") : (cal));
-    setCurState("");
+    setCurState((cal).includes(".") ? Number(cal).toFixed(10).replace(/([0-9]+(\.[1-9]+)?)(\.?0+$)/, "$1") : (cal));
+    setPreState("");
   };
   const backspace = () => {
-    if (curState) {setCurState(curState.slice(0, -1));}
-    else if (operator) {setOperator(operator.slice(0,-1))}
-    else if (preState) {setPreState(preState.slice(0, -1));}
+    if (curState) { setCurState(curState.slice(0, -1)); }
+    else if (operator) { setOperator(operator.slice(0, -1)) }
+    else if (preState) { setPreState(preState.slice(0, -1)); }
   };
-  const Percent = (e) => {
+  const Percent = () => {
     if (curState) {
       preState = setCurState(String((parseFloat(curState) / 100)))
     }
-     else {
-      preState =
-      setCurState(String((parseFloat(preState))) / 100 );
+    else if (curState) {
+      preState = setCurState(String((parseInt(preState))) / 100);
+    }
+    else {
+      setCurState("")
     }
   };
   const Reset = () => {
@@ -84,11 +85,12 @@ export default function Buttons() {
     setInput("");
     setOperator("")
   };
-  let Common=`${preState}`+ `${operator}`+`${curState}`
+  let Common = preState + operator + curState;
   return (
     <>
       <div>
-        <div className="button" id="dir"> {`${Common.substring(0, 14)}`}
+        <div className="button" id="dir">
+          {`${Common.substring(0, 14)}`}
         </div>
         <div className="button">
           <Button variant="outline-success" className="rounded-circle" onClick={Reset} active>AC</Button>{' '}
