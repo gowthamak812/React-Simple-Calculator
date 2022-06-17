@@ -77,8 +77,6 @@ export default function Buttons() {
       preState =
       setCurState(String((parseFloat(preState))) / 100 );
     }
-    console.log("preState",preState);
-    console.log("curState",curState);
   };
   const Reset = () => {
     setPreState("");
