@@ -15,6 +15,7 @@ export default function Buttons() {
     if (curState.includes(".") && e.target.innerText === ".") return;
     if (total) {
       setPreState("");
+      setCurState("");
     }
     curState
       ? setCurState((pre) => pre + e.target.innerText)
@@ -60,7 +61,7 @@ export default function Buttons() {
         return;
     }
     setOperator("");
-    setCurState((cal).includes(".") ? Number(cal).toFixed(10).replace(/([0-9]+(\.[1-9]+)?)(\.?0+$)/, "$1") : (cal));
+    setCurState((cal).includes(".") ? Number(cal).toString(10) : (cal));
     setPreState("");
   };
   const backspace = () => {
@@ -68,17 +69,13 @@ export default function Buttons() {
     else if (operator) { setOperator(operator.slice(0, -1)) }
     else if (preState) { setPreState(preState.slice(0, -1)); }
   };
+
   const Percent = () => {
     if (curState) {
-      preState = setCurState(String((parseFloat(curState) / 100)))
-    }
-    else if (curState) {
-      preState = setCurState(String((parseInt(preState))) / 100);
-    }
-    else {
-      setCurState("")
+      preState = setCurState(String(parseFloat(curState) / 100));
     }
   };
+
   const Reset = () => {
     setPreState("");
     setCurState("");
